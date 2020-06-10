@@ -9,9 +9,10 @@ phases:
       - echo Building the Go code...
       - go get
       - go build main.go 
+      - export BUCKET=lambda-deployment-artifacts-1234567890121111111111
+      - aws cloudformation package --template-file template.yml --s3-bucket $BUCKET --output-template-file outputtemplate.yml
 artifacts:
-  secondary-artifacts:
-    golang_artifacts:
-      base-directory: golang-app
-      files:
-        - main
+  type: zip
+  files:
+    - template.yml
+    - outputtemplate.yml
