@@ -15,7 +15,7 @@ type MyResponse struct {
 	Message string `json:"message:"`
 }
 
-func HandleRequest(ctx context.Context, name MyEvent) (string, error) {
+func HandleRequest(ctx context.Context, name MyEvent) (MyResponse, error) {
 	return MyResponse{Message: fmt.Sprintf("Hello World")}, nil
 }
 
