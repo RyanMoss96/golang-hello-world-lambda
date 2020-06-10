@@ -8,3 +8,9 @@ Resources:
       Handler: main
       Runtime: go1.x
       CodeUri: ./
+      Events:
+        HelloWordAPI:
+          Type: Api
+          Properties:
+            Path: /test
+            Method: GET
